@@ -1,0 +1,169 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 1.4;
+  color: #2e343e;
+}
+
+.pirouette {
+  margin: 0 1rem;
+}
+.pirouette__header h2 {
+  font-family: "Righteous", "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+  font-size: 2rem;
+  margin: 2em auto 1em;
+  text-align: center;
+}
+.pirouette-container {
+  perspective: 1000px;
+}
+.pirouette__item {
+  margin: 1rem auto;
+  width: 20rem;
+  height: 25rem;
+  animation: pirouette-anime 2s ease-in;
+  animation-fill-mode: backwards;
+}
+
+.pirouette__item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.pirouette__item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.pirouette__item:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.pirouette__item:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.pirouette__item__flip__arena {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.pirouette__item__flip__scene {
+  position: relative;
+  height: 100%;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+.pirouette__item__flip__scene:hover {
+  transform: rotateY(180deg);
+}
+.pirouette__item__flip__scene:hover .pirouette__item__flip__actor {
+  animation: shadow-shift 2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.pirouette__item__flip__actor {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  border: 1px solid #918483;
+  box-shadow: 1em 1em 2em 0 rgba(184, 204, 195, 0.5);
+}
+.pirouette__item__flip__actor > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.pirouette__item__flip__actor--front {
+  background-color: #dcc9b7;
+}
+.pirouette__item__flip__actor--front > div > * {
+  flex: 1;
+}
+.pirouette__item__flip__actor--front h3 {
+  color: #2e3331;
+  font-family: "Righteous", "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Josefin Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+.pirouette__item__flip__actor--front img {
+  max-width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+.pirouette__item__flip__actor--back {
+  transform: rotateY(180deg);
+  background-color: #b8ccc3;
+  padding: 1em;
+}
+.pirouette__item__flip__actor--back > div {
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 50em) {
+  .pirouette-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .pirouette__item {
+    flex: 0 0 20rem;
+  }
+}
+@keyframes shadow-shift {
+  50% {
+    box-shadow: 1em 1em 1em 0 rgba(184, 204, 195, 0.4);
+  }
+  100% {
+    box-shadow: 1em 1em 2em 0 rgba(220, 201, 183, 0.5);
+  }
+}
+@keyframes pirouette-anime {
+  0% {
+    transform: translateZ(-800px) rotatey(360deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateZ(50px);
+  }
+  100% {
+    transform: translateZ(0) rotatey(0);
+  }
+}
+@keyframes pirouette-anime-actor-back {
+  0% {
+    transform: translateZ(-800px) rotatey(-20);
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    transform: translateZ(50px);
+  }
+  100% {
+    transform: translateZ(0) rotatey(0);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
