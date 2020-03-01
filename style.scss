@@ -19,7 +19,7 @@ $height-item: (400px/$font-size-default) + rem;
 $border-radius-box: 5px;
 
 $number-of-items: 5;
-$pirouette-anime-one-card-delay: 0.51s;
+$pirouette-anime-one-card-delay: 0.3s;
 $pirouette-anime-duration: $pirouette-anime-one-card-delay * $number-of-items;
 
 
@@ -66,27 +66,8 @@ body {
         width: $width-item;
         height: $height-item;
         position: relative;
-        animation: pirouette-anime $pirouette-anime-duration ease-in;
+        animation: pirouette-anime $pirouette-anime-duration ease-out;
         animation-fill-mode: backwards;
-        &::before {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 100%;
-            transform: skew(-65deg);
-            transform-origin: bottom left;
-//            background-color: $color-secondary;
-            //box-shadow:inset 0 0 5em 0 $pirouette-item-shadow;
-            background-image: linear-gradient(to top, $color-secondary 10%, $color-background);
-            position: absolute;
-            opacity: 1;
-            animation: pirouette-shadow-anime $pirouette-anime-duration linear;
-            animation-fill-mode: forwards;
-           
-        }
-        &:hover::before {
-            transform: rotateY(180deg);
-        }
         
     }
 }
@@ -127,7 +108,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
 }//scene
 @for $s from 1 to $number-of-items + 1 {
     .pirouette__item__flip__scene:nth-child(#{$s}) {
-        z-index: 30 - $s;
+        z-index: 30 + $s;
     }
 }
 
@@ -214,37 +195,20 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
 @keyframes pirouette-anime {
     0% {
         opacity:0;
-        transform:translateZ(-1000px) skewx(-60deg) scaley(0.5) rotatex(-10deg);
+        transform:translateZ(-1000px) translateX(2000px) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
     }
     25% {
         opacity: 1;
-        transform:translateZ(-50px) skewx(-30deg) scaley(0.7) rotatex(-5deg);
+        transform:translateZ(-50px) skewx(-10deg)  rotatex(5deg);
     }
+    
     80% {
-        
-        transform:translateZ(20px) skewx(0deg) scaley(1.2) rotatex(0deg);
-    }
-    99% {
-       
+      transform:translateZ(20px) skewx(0deg) scaley(1.2) scaleX(1.2) rotatex(0deg); 
     }
     100% {
         
-        transform: translateZ(0px) skewx(0deg) scaley(1) rotatex(0deg);
+        transform: translateZ(0px) skewx(0deg) scaley(1) scaleX(1) rotatex(0deg);
        
-    }
-}
-@keyframes pirouette-shadow-anime {
-    0% {
-        opacity: 1;   
-    }
-    80% {
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0);
-
-        
     }
 }
 
