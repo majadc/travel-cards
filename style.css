@@ -141,8 +141,7 @@ body {
 }
 .pirouette__item__flip__actor--back {
   transform: rotateY(180deg);
-  background-image: linear-gradient(to bottom right, #b8ccc3 70%, #dcc9b7);
-  background-blend-mode: multiply;
+  background-image: linear-gradient(to bottom right, #b8ccc3 60%, #dcc9b7);
   padding: 1em;
 }
 .pirouette__item__flip__actor--back > div {
@@ -155,10 +154,11 @@ body {
   content: "";
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   position: absolute;
-  bottom: 1em;
-  right: 1em;
+  bottom: 0rem;
+  right: 0rem;
   width: 3em;
   height: 3em;
+  background-color: #b8ccc3;
 }
 
 @media (min-width: 50em) {
