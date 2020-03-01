@@ -91,7 +91,7 @@ body {
     }
 }
 $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouette-anime-one-card-delay + 2);
-@for $i from 2 to 6 {
+@for $i from 1 to 6 {
     .pirouette__item:nth-child(#{$i}) {
         animation-delay: $pirouette-anime-one-card-delay;
     }

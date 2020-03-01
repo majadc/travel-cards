@@ -15,6 +15,7 @@ body {
   font-size: 1.5em;
   line-height: 1.4;
   color: #2e343e;
+  background-color: #f1f2ed;
 }
 
 .pirouette {
@@ -25,6 +26,7 @@ body {
   font-size: 2rem;
   margin: 2em auto 1em;
   text-align: center;
+  background-color: #f1f2ed;
 }
 .pirouette-container {
   perspective: 1000px;
@@ -33,34 +35,78 @@ body {
   margin: 1rem auto;
   width: 20rem;
   height: 25rem;
-  animation: pirouette-anime 2s ease-in;
+  position: relative;
+  animation: pirouette-anime 2.55s ease-in;
   animation-fill-mode: backwards;
+}
+.pirouette__item::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: skew(-65deg);
+  transform-origin: bottom left;
+  background-image: linear-gradient(to top, #b8ccc3 10%, #f1f2ed);
+  position: absolute;
+  opacity: 1;
+  animation: pirouette-shadow-anime 2.55s linear;
+  animation-fill-mode: forwards;
+}
+.pirouette__item:hover::before {
+  transform: rotateY(180deg);
+}
+
+.pirouette__item:nth-child(1) {
+  animation-delay: 0.51s;
+}
+
+.pirouette__item:nth-child(1)::before {
+  animation-delay: 0.51s;
 }
 
 .pirouette__item:nth-child(2) {
-  animation-delay: 0.1s;
+  animation-delay: 3.53s;
+}
+
+.pirouette__item:nth-child(2)::before {
+  animation-delay: 3.53s;
 }
 
 .pirouette__item:nth-child(3) {
-  animation-delay: 0.2s;
+  animation-delay: 6.55s;
+}
+
+.pirouette__item:nth-child(3)::before {
+  animation-delay: 6.55s;
 }
 
 .pirouette__item:nth-child(4) {
-  animation-delay: 0.3s;
+  animation-delay: 9.57s;
+}
+
+.pirouette__item:nth-child(4)::before {
+  animation-delay: 9.57s;
 }
 
 .pirouette__item:nth-child(5) {
-  animation-delay: 0.4s;
+  animation-delay: 12.59s;
+}
+
+.pirouette__item:nth-child(5)::before {
+  animation-delay: 12.59s;
 }
 
 .pirouette__item__flip__arena {
   width: 100%;
   height: 100%;
   perspective: 1000px;
+  position: relative;
+  z-index: 1;
 }
 
 .pirouette__item__flip__scene {
   position: relative;
+  z-index: 2;
   height: 100%;
   transition: transform 2s;
   transform-style: preserve-3d;
@@ -71,6 +117,26 @@ body {
 .pirouette__item__flip__scene:hover .pirouette__item__flip__actor {
   animation: shadow-shift 2s ease-in;
   animation-fill-mode: forwards;
+}
+
+.pirouette__item__flip__scene:nth-child(1) {
+  z-index: 29;
+}
+
+.pirouette__item__flip__scene:nth-child(2) {
+  z-index: 28;
+}
+
+.pirouette__item__flip__scene:nth-child(3) {
+  z-index: 27;
+}
+
+.pirouette__item__flip__scene:nth-child(4) {
+  z-index: 26;
+}
+
+.pirouette__item__flip__scene:nth-child(5) {
+  z-index: 25;
 }
 
 .pirouette__item__flip__actor {
@@ -138,17 +204,30 @@ body {
 }
 @keyframes pirouette-anime {
   0% {
-    transform: translateZ(-800px) rotatey(360deg);
     opacity: 0;
+    transform: translateZ(-1000px) skewx(-60deg) scaley(0.5) rotatex(-10deg);
   }
-  50% {
+  25% {
     opacity: 1;
+    transform: translateZ(-50px) skewx(-30deg) scaley(0.7) rotatex(-5deg);
   }
-  90% {
-    transform: translateZ(50px);
+  80% {
+    transform: translateZ(20px) skewx(0deg) scaley(1.2) rotatex(0deg);
   }
   100% {
-    transform: translateZ(0) rotatey(0);
+    transform: translateZ(0px) skewx(0deg) scaley(1) rotatex(0deg);
+  }
+}
+@keyframes pirouette-shadow-anime {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
   }
 }
 @keyframes pirouette-anime-actor-back {
