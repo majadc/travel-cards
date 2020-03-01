@@ -18,7 +18,7 @@ $height-item: (400px/$font-size-default) + rem;
 $border-radius-box: 5px;
 
 $number-of-items: 5;
-$pirouette-anime-one-card-delay: 0.3s;
+$pirouette-anime-one-card-delay: 0.5s;
 $pirouette-anime-duration: $pirouette-anime-one-card-delay * $number-of-items;
 
 
@@ -69,7 +69,7 @@ body {
         
     }
 }
-$pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouette-anime-one-card-delay + 2);
+$pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($pirouette-anime-one-card-delay + 2);
 @for $i from 1 to 6 {
     .pirouette__item:nth-child(#{$i}) {
         animation-delay: $pirouette-anime-one-card-delay;
@@ -93,14 +93,15 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
     transition: transform 0.5s;
     transform: scale(1, 1);
     transform-style: preserve-3d;
-    &:hover {
+    .pirouette__item:hover & {
         transform: rotateY(180deg) scale(1.1, 1.1);
-        //animation: pirouette-item-flip-anime 2s linear;
         & .pirouette__item__flip__actor {
-            animation: shadow-shift 1s ease-in;
+            animation: shadow-shift 1s linear;
             animation-fill-mode: forwards;  
         }
     }  
+
+    
 }//scene
 @for $s from 1 to $number-of-items + 1 {
     .pirouette__item__flip__item:nth-child(#{$s}) .pirouette__item__flip__actor {
@@ -116,7 +117,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
     -webkit-backface-visibility: hidden;
     border-radius: $border-radius-box;
     border: 1px solid $color-dark-primary;
-    box-shadow: 1em 1em 2em 0 $pirouette-item-shadow;
+    box-shadow: 0em 0em 1em 0.3em $color-secondary;
     &>div {
         display: flex;
         flex-direction: column;
@@ -144,7 +145,6 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
         transform: rotateY(180deg);
         background-color: $color-secondary;
         padding: 1em;
-        //z-index: 10;
         &>div {
             justify-content: center;
             align-items: center; 
@@ -165,21 +165,19 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
 
 
 @keyframes shadow-shift {
-    0% {
-    }
     50% {
         
-        box-shadow: 1em 1em 1em 0 color.change($color-secondary, $alpha: 0.4);
+        box-shadow: 0em 0em 1em 0.3em color.change($color-secondary, $alpha: 0.4);
     }
     100% {
-        box-shadow: 1em 1em 2em 0 color.change($color-light-primary, $alpha: 0.5);
+        box-shadow: 0em 0em 1em 0.3em $color-light-primary;
     }
 }
 
 @keyframes pirouette-anime {
     0% {
         opacity:0;
-        transform:translateZ(-1000px) translateX(2000px) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
+        transform:translateZ(-1000px) translateX(150vw) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
     }
     25% {
         opacity: 1;
