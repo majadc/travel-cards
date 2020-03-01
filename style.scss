@@ -8,7 +8,6 @@ $color-secondary: hsla(153, 16%, 76%, 1); //#b7cbc2
 $color-dark-secondary: hsla(156, 5%, 19%, 1);
 $pirouette-item-shadow: color.change($color-secondary, $alpha: 0.5);
 
-$font-family-header-2: 'Righteous', "Lucida Sans Unicode","Lucida Grande", Arial, sans-serif;
 $font-family-style-1: 'Josefin Sans',"Trebuchet MS",Helvetica,Arial,sans-serif;
 $font-size-basic: 1em;
 $font-size-default: 16px;
@@ -52,9 +51,8 @@ body {
 .pirouette {
     margin: 0 1rem;
     &__header h2 {
-        font-family: $font-family-header-2;
-        font-size: 2rem;
-        margin: 2em auto 1em;
+        font-size: 2.5rem;
+        margin: 1em auto 1em;
         text-align: center;
         background-color: $color-background;
     }
@@ -76,9 +74,6 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
     .pirouette__item:nth-child(#{$i}) {
         animation-delay: $pirouette-anime-one-card-delay;
     }
-    .pirouette__item:nth-child(#{$i})::before {
-        animation-delay: $pirouette-anime-one-card-delay;
-    }
     $pirouette-anime-one-card-delay: $pirouette-anime-one-card-delay + $pirouette-anime-one-card-delay-sep;
 }
 
@@ -89,18 +84,17 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
     height: 100%;
     perspective: 1000px; //make before items semitransparent
     position: relative;
-    z-index: 1;
 }
 
 .pirouette__item__flip__scene {
     position: relative;
     z-index: 2;
     height: 100%;
-    transition: transform 0.8s;
-    transform: scale(1,1);
+    transition: transform 0.5s;
+    transform: scale(1, 1);
     transform-style: preserve-3d;
     &:hover {
-        transform: rotateY(180deg) scale(1.2);
+        transform: rotateY(180deg) scale(1.1, 1.1);
         //animation: pirouette-item-flip-anime 2s linear;
         & .pirouette__item__flip__actor {
             animation: shadow-shift 1s ease-in;
@@ -109,7 +103,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
     }  
 }//scene
 @for $s from 1 to $number-of-items + 1 {
-    .pirouette__item__flip__scene:nth-child(#{$s}) {
+    .pirouette__item__flip__item:nth-child(#{$s}) .pirouette__item__flip__actor {
         z-index: 30 + $s;
     }
 }
@@ -134,14 +128,11 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
             flex: 1;   
         }
         & h3 {
-            //color: color.adjust($color-secondary, $lightness: -50%);
             color: $color-dark-secondary;
-            font-family: $font-family-header-2;
             font-size: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: $font-family-style-1;
         }
         & img {
             max-width: 100%;
@@ -150,9 +141,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
         }
     }//front
     &--back {
-        //animation: pirouette-anime-actor-back $pirouette-anime-duration ease-in;
         transform: rotateY(180deg);
-        //transition: transform 0s ease-in $pirouette-actor-back-rotate-init;
         background-color: $color-secondary;
         padding: 1em;
         //z-index: 10;
@@ -162,13 +151,6 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
         }
     }//back
 }
-
-
-
-
-
-
-
 
 @media (min-width: $media-query-large) {
     .pirouette-container {
@@ -211,31 +193,5 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay + ($pirouet
         
         transform: translateZ(0px) skewx(0deg) scaley(1) scaleX(1) rotatex(0deg);
        
-    }
-}
-
-@keyframes pirouette-anime-actor-back {
-    0% {
-        transform: translateZ(-800px) rotatey(-20);
-        
-    }
-    50% {
-        //transform: translateZ(-160px);
-        opacity: 1;
-    }
-    90% {
-        transform: translateZ(50px);
-    }
-    100% {
-        transform: translateZ(0) rotatey(0);
-    }
-}
-
-@keyframes pirouette-item-flip-anime {
-    0% {
-        transform: rotateY(0);
-    }
-    100% {
-        transform: rotateY(180deg);
     }
 }
