@@ -124,25 +124,41 @@ body {
   flex: 1;
 }
 .pirouette__item__flip__actor--front h3 {
-  color: #2e3331;
   font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(to right, #2e343e, #b8ccc3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .pirouette__item__flip__actor--front img {
   max-width: 100%;
   display: block;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .pirouette__item__flip__actor--back {
   transform: rotateY(180deg);
-  background-color: #b8ccc3;
+  background-image: linear-gradient(to bottom right, #b8ccc3 70%, #dcc9b7);
+  background-blend-mode: multiply;
   padding: 1em;
 }
 .pirouette__item__flip__actor--back > div {
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.pirouette__item__flip__actor--back > div::after {
+  display: block;
+  content: "";
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: 3em;
+  height: 3em;
 }
 
 @media (min-width: 50em) {

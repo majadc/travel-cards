@@ -129,25 +129,43 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
             flex: 1;   
         }
         & h3 {
-            color: $color-dark-secondary;
+            //color: $color-dark-secondary;
             font-size: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: linear-gradient(to right, $color-main-font, $color-secondary );
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
         & img {
             max-width: 100%;
             display: block;
-            border-radius: $border-radius-box;
+            border-top-left-radius: $border-radius-box;
+            border-top-right-radius: $border-radius-box;
         }
     }//front
     &--back {
         transform: rotateY(180deg);
-        background-color: $color-secondary;
+        //background-color: $color-secondary;
+        background-image: linear-gradient(to bottom right, $color-secondary 70%, $color-light-primary);
+        background-blend-mode: multiply;
         padding: 1em;
         &>div {
             justify-content: center;
             align-items: center; 
+            position: relative;
+            &::after{
+                display: block;
+                content: '';
+                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+                position: absolute;
+                bottom: 1em;
+                right: 1em;
+                width: 3em;
+                height: 3em;
+            }
         }
     }//back
 }
