@@ -1,11 +1,12 @@
 @use 'sass:color';
 //colors
-$color-main-font: hsla(214, 15%, 21%, 1); //#556273 l lower
-$color-background: hsla(72, 16%, 94%, 1); //#f1f2ed
-$color-dark-primary: hsla(5, 6%, 54%, 1); // #908483
-$color-light-primary:hsla(29, 34%, 79%, 1); //#dbc8b6
-$color-secondary: hsla(153, 16%, 76%, 1); //#b7cbc2
-$color-dark-secondary: hsla(156, 5%, 19%, 1);
+$color-font: hsl(214, 15%, 21%); //#556273
+$color-background: hsl(72, 16%, 94%); //#f1f2ed
+$color-primary: hsl(29, 34%, 79%); //#dbc8b6
+$color-secondary: hsl(153, 16%, 76%); //#b7cbc2
+$color-secondary-2: hsla(5, 6%, 54%, 1); // #908483
+
+
 $pirouette-item-shadow: color.change($color-secondary, $alpha: 0.5);
 
 $font-family-style-1: 'Josefin Sans',"Trebuchet MS",Helvetica,Arial,sans-serif;
@@ -44,7 +45,7 @@ body {
     font-family: $font-family-style-1;
     font-size: 1.5em;
     line-height: 1.4;
-    color: $color-main-font;
+    color: $color-font;
     background-color: $color-background;
 }
 
@@ -116,7 +117,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     border-radius: $border-radius-box;
-    border: 1px solid $color-dark-primary;
+    border: 1px solid $color-secondary-2;
     box-shadow: 0em 0em 1em 0.3em $color-secondary;
     &>div {
         display: flex;
@@ -124,7 +125,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
         height: 100%;
     }
     &--front {
-        background-color: $color-light-primary;
+        background-color: $color-primary;
         &>div>* {
             flex: 1;   
         }
@@ -134,7 +135,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: linear-gradient(to right, $color-main-font, $color-secondary );
+            background-image: linear-gradient(to right, $color-font, $color-secondary );
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -149,7 +150,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
     &--back {
         transform: rotateY(180deg);
         //background-color: $color-secondary;
-        background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-light-primary);
+        background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-primary);
         padding: 1em;
         &>div {
             justify-content: center;
@@ -184,11 +185,10 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
 
 @keyframes shadow-shift {
     50% {
-        
-        box-shadow: 0em 0em 1em 0.3em color.change($color-secondary, $alpha: 0.4);
+        box-shadow: 0em 0em 0.5em 0.1em color.change($color-secondary, $alpha: 0.4);
     }
     100% {
-        box-shadow: 0em 0em 1em 0.3em $color-light-primary;
+        box-shadow: 0em 0em 1em 0.3em $color-primary;
     }
 }
 
