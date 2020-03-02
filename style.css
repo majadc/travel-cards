@@ -18,19 +18,19 @@ body {
   background-color: #f1f2ed;
 }
 
-.pirouette {
+.travel-cards {
   margin: 0 1rem;
 }
-.pirouette__header h2 {
+.travel-cards__header h2 {
   font-size: 2.5rem;
   margin: 1em auto 1em;
   text-align: center;
   background-color: #f1f2ed;
 }
-.pirouette-container {
+.travel-cards__container {
   perspective: 1000px;
 }
-.pirouette__item {
+.travel-cards__item {
   margin: 1rem auto;
   width: 20rem;
   height: 25rem;
@@ -39,34 +39,34 @@ body {
   animation-fill-mode: backwards;
 }
 
-.pirouette__item:nth-child(1) {
+.travel-cards__item:nth-child(1) {
   animation-delay: 0.5s;
 }
 
-.pirouette__item:nth-child(2) {
+.travel-cards__item:nth-child(2) {
   animation-delay: 1s;
 }
 
-.pirouette__item:nth-child(3) {
+.travel-cards__item:nth-child(3) {
   animation-delay: 1.5s;
 }
 
-.pirouette__item:nth-child(4) {
+.travel-cards__item:nth-child(4) {
   animation-delay: 2s;
 }
 
-.pirouette__item:nth-child(5) {
+.travel-cards__item:nth-child(5) {
   animation-delay: 2.5s;
 }
 
-.pirouette__item__flip__arena {
+.travel-cards__item-flip__arena {
   width: 100%;
   height: 100%;
   perspective: 1000px;
   position: relative;
 }
 
-.pirouette__item__flip__scene {
+.travel-cards__item-flip__scene {
   position: relative;
   z-index: 2;
   height: 100%;
@@ -74,35 +74,35 @@ body {
   transform: scale(1, 1);
   transform-style: preserve-3d;
 }
-.pirouette__item:hover .pirouette__item__flip__scene {
+.travel-cards__item:hover .travel-cards__item-flip__scene {
   transform: rotateY(180deg) scale(1.1, 1.1);
 }
-.pirouette__item:hover .pirouette__item__flip__scene .pirouette__item__flip__actor {
+.travel-cards__item:hover .travel-cards__item-flip__scene .travel-cards__item-flip__actor {
   animation: shadow-shift-for-actor-back 0.5s linear;
   animation-fill-mode: forwards;
 }
 
-.pirouette__item__flip__item:nth-child(1) .pirouette__item__flip__actor {
+.travel-cards__item-flip__item:nth-child(1) .travel-cards__item-flip__actor {
   z-index: 31;
 }
 
-.pirouette__item__flip__item:nth-child(2) .pirouette__item__flip__actor {
+.travel-cards__item-flip__item:nth-child(2) .travel-cards__item-flip__actor {
   z-index: 32;
 }
 
-.pirouette__item__flip__item:nth-child(3) .pirouette__item__flip__actor {
+.travel-cards__item-flip__item:nth-child(3) .travel-cards__item-flip__actor {
   z-index: 33;
 }
 
-.pirouette__item__flip__item:nth-child(4) .pirouette__item__flip__actor {
+.travel-cards__item-flip__item:nth-child(4) .travel-cards__item-flip__actor {
   z-index: 34;
 }
 
-.pirouette__item__flip__item:nth-child(5) .pirouette__item__flip__actor {
+.travel-cards__item-flip__item:nth-child(5) .travel-cards__item-flip__actor {
   z-index: 35;
 }
 
-.pirouette__item__flip__actor {
+.travel-cards__item-flip__actor {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -112,18 +112,18 @@ body {
   animation: shadow-shift-for-actor-front 0.5s linear;
   animation-fill-mode: forwards;
 }
-.pirouette__item__flip__actor > div {
+.travel-cards__item-flip__actor > div {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.pirouette__item__flip__actor--front {
+.travel-cards__item-flip__actor--front {
   background-color: #dcc9b7;
 }
-.pirouette__item__flip__actor--front > div > * {
+.travel-cards__item-flip__actor--front > div > * {
   flex: 1;
 }
-.pirouette__item__flip__actor--front h3 {
+.travel-cards__item-flip__actor--front h3 {
   font-size: 2rem;
   display: flex;
   justify-content: center;
@@ -133,23 +133,23 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
-.pirouette__item__flip__actor--front img {
+.travel-cards__item-flip__actor--front img {
   max-width: 100%;
   display: block;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.pirouette__item__flip__actor--back {
+.travel-cards__item-flip__actor--back {
   transform: rotateY(180deg);
   background-image: linear-gradient(to bottom right, #b8ccc3 60%, #dcc9b7);
   padding: 1em;
 }
-.pirouette__item__flip__actor--back > div {
+.travel-cards__item-flip__actor--back > div {
   justify-content: center;
   align-items: center;
   position: relative;
 }
-.pirouette__item__flip__actor--back > div::after {
+.travel-cards__item-flip__actor--back > div::after {
   display: block;
   content: "";
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
@@ -162,12 +162,12 @@ body {
 }
 
 @media (min-width: 50em) {
-  .pirouette-container {
+  .travel-cards__container {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .pirouette__item {
+  .travel-cards__item {
     flex: 0 0 20rem;
   }
 }

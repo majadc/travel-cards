@@ -50,7 +50,7 @@ body {
     background-color: $color-background;
 }
 
-.pirouette {
+.travel-cards {
     margin: 0 1rem;
     &__header h2 {
         font-size: 2.5rem;
@@ -58,7 +58,7 @@ body {
         text-align: center;
         background-color: $color-background;
     }
-    &-container {
+    &__container {
         perspective: 1000px;
     }
     &__item {
@@ -73,7 +73,7 @@ body {
 }
 $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($pirouette-anime-one-card-delay + 2);
 @for $i from 1 to 6 {
-    .pirouette__item:nth-child(#{$i}) {
+    .travel-cards__item:nth-child(#{$i}) {
         animation-delay: $pirouette-anime-one-card-delay;
     }
     $pirouette-anime-one-card-delay: $pirouette-anime-one-card-delay + $pirouette-anime-one-card-delay-sep;
@@ -81,23 +81,23 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
 
 
 //fliping the card
-.pirouette__item__flip__arena {
+.travel-cards__item-flip__arena {
     width: 100%;
     height: 100%;
     perspective: 1000px; //make before items semitransparent
     position: relative;
 }
 
-.pirouette__item__flip__scene {
+.travel-cards__item-flip__scene {
     position: relative;
     z-index: 2;
     height: 100%;
     transition: transform 0.5s;
     transform: scale(1, 1);
     transform-style: preserve-3d;
-    .pirouette__item:hover & {
+    .travel-cards__item:hover & {
         transform: rotateY(180deg) scale(1.1, 1.1);
-        & .pirouette__item__flip__actor {
+        & .travel-cards__item-flip__actor {
             animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
             animation-fill-mode: forwards;  
         }
@@ -106,12 +106,12 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
     
 }//scene
 @for $s from 1 to $number-of-items + 1 {
-    .pirouette__item__flip__item:nth-child(#{$s}) .pirouette__item__flip__actor {
+    .travel-cards__item-flip__item:nth-child(#{$s}) .travel-cards__item-flip__actor {
         z-index: 30 + $s;
     }
 }
 
-.pirouette__item__flip__actor {
+.travel-cards__item-flip__actor {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -172,12 +172,11 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
 }
 
 @media (min-width: $media-query-large) {
-    .pirouette-container {
+    .travel-cards__container {
         display: flex;
         flex-wrap: wrap;
-
     }
-    .pirouette__item {
+    .travel-cards__item {
         flex:0 0 $width-item;
     }
 }
