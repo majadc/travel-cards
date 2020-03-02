@@ -1,8 +1,5 @@
 #ignore vscode folder
 .vscode/
 
-#ignore images
-images/
-
 #ignore
 style - Copy.scss
