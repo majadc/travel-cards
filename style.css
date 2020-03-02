@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-size: calc(0.6em + 1vw);
 }
 
 *, *::before, *::after {
@@ -12,7 +13,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Josefin Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
-  font-size: 1.5em;
   line-height: 1.4;
   color: #2e343e;
   background-color: #f1f2ed;
@@ -22,7 +22,6 @@ body {
   margin: 0 1rem;
 }
 .travel-cards__header h2 {
-  font-size: 2.5rem;
   margin: 1em auto 1em;
   text-align: center;
   background-color: #f1f2ed;
@@ -32,8 +31,8 @@ body {
 }
 .travel-cards__item {
   margin: 1rem auto;
-  width: 20rem;
-  height: 25rem;
+  width: 17rem;
+  height: 20rem;
   position: relative;
   animation: travel-cards-anime 2.5s ease-out;
   animation-fill-mode: backwards;
@@ -124,7 +123,6 @@ body {
   flex: 1;
 }
 .travel-cards__item-flip__actor--front h3 {
-  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,6 +136,7 @@ body {
   display: block;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  object-fit: cover;
 }
 .travel-cards__item-flip__actor--back {
   transform: rotateY(180deg);
@@ -162,13 +161,27 @@ body {
 }
 
 @media (min-width: 50em) {
+  html {
+    font-size: 1rem;
+  }
+
   .travel-cards__container {
     display: flex;
     flex-wrap: wrap;
   }
 
   .travel-cards__item {
-    flex: 0 0 20rem;
+    flex: 0 0 17rem;
+  }
+
+  .travel-cards p {
+    font-size: 1.5rem;
+  }
+  .travel-cards h2 {
+    font-size: 2.5rem;
+  }
+  .travel-cards h3 {
+    font-size: 2rem;
   }
 }
 @keyframes shadow-shift-for-actor-back {

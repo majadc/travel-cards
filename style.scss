@@ -9,8 +9,8 @@ $color-secondary-2: hsla(5, 6%, 54%, 1); // #908483
 $font-family-style: 'Josefin Sans',"Trebuchet MS",Helvetica,Arial,sans-serif;
 $font-size-default: 16px;
 
-$width-item: (320px/$font-size-default) + rem;
-$height-item: (400px/$font-size-default) + rem;
+$width-item: 17rem;  //(150px/$font-size-default) + rem;
+$height-item:20rem; //(75px/$font-size-default) + rem;
 
 $shadow-shift-anime-duration: 0.5s;
 $shadow-shift-anime-function: linear;
@@ -33,6 +33,7 @@ $media-query-large: 50em;
 
 html {
     box-sizing: border-box;
+    font-size: calc(0.6em + 1vw);
 }
 *, *::before, *::after {
     margin: 0;
@@ -43,7 +44,8 @@ body {
     margin:0;
     padding:0;
     font-family: $font-family-style;
-    font-size: 1.5em;
+    //font-size: 1rem;
+    
     line-height: 1.4;
     color: $color-font;
     background-color: $color-background;
@@ -52,7 +54,7 @@ body {
 .travel-cards {
     margin: 0 1rem;
     &__header h2 {
-        font-size: 2.5rem;
+        //font-size: 2.5rem;
         margin: 1em auto 1em;
         text-align: center;
         background-color: $color-background;
@@ -127,7 +129,7 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
         }
         & h3 {
             //color: $color-dark-secondary;
-            font-size: 2rem;
+           // font-size: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -140,6 +142,7 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
             max-width: 100%;
             display: block;
             @include border-radius-top($border-radius);
+            object-fit: cover;
         }
     }//actor-front
     &--back {
@@ -147,6 +150,7 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
         background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-primary);
         padding: 1em;
         &>div {
+           // font-size: 1.5rem;
             justify-content: center;
             align-items: center; 
             position: relative;
@@ -166,12 +170,26 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
 }
 
 @media (min-width: $media-query-large) {
+    html {
+        font-size: 1rem;
+    }
     .travel-cards__container {
         display: flex;
         flex-wrap: wrap;
     }
     .travel-cards__item {
         flex:0 0 $width-item;
+    }
+    .travel-cards {
+        & p {
+            font-size: 1.5rem;
+        }
+        & h2 {
+            font-size: 2.5rem;
+        }
+        & h3 {
+            font-size: 2rem;
+        }
     }
 }
 
