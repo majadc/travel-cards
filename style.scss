@@ -6,21 +6,24 @@ $color-primary: hsl(29, 34%, 79%); //#dbc8b6
 $color-secondary: hsl(153, 16%, 76%); //#b7cbc2
 $color-secondary-2: hsla(5, 6%, 54%, 1); // #908483
 
-
-$pirouette-item-shadow: color.change($color-secondary, $alpha: 0.5);
-
-$font-family-style-1: 'Josefin Sans',"Trebuchet MS",Helvetica,Arial,sans-serif;
-$font-size-basic: 1em;
+$font-family-style: 'Josefin Sans',"Trebuchet MS",Helvetica,Arial,sans-serif;
 $font-size-default: 16px;
 
 $width-item: (320px/$font-size-default) + rem;
 $height-item: (400px/$font-size-default) + rem;
 
-$border-radius-box: 5px;
+$shadow-shift-anime-duration: 0.5s;
+$shadow-shift-anime-function: linear;
 
 $number-of-items: 5;
 $pirouette-anime-one-card-delay: 0.5s;
 $pirouette-anime-duration: $pirouette-anime-one-card-delay * $number-of-items;
+
+$border-radius: 5px;
+@mixin border-radius-top ($border-radius) {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+}
 
 
 //media query
@@ -36,13 +39,11 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    
-   
 }
 body {
     margin:0;
     padding:0;
-    font-family: $font-family-style-1;
+    font-family: $font-family-style;
     font-size: 1.5em;
     line-height: 1.4;
     color: $color-font;
@@ -97,7 +98,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
     .pirouette__item:hover & {
         transform: rotateY(180deg) scale(1.1, 1.1);
         & .pirouette__item__flip__actor {
-            animation: shadow-shift 1s linear;
+            animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
             animation-fill-mode: forwards;  
         }
     }  
@@ -115,10 +116,10 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: $border-radius-box;
+    border-radius: $border-radius;
     border: 1px solid $color-secondary-2;
-    box-shadow: 0em 0em 1em 0.3em $color-secondary;
+    animation: shadow-shift-for-actor-front $shadow-shift-anime-duration $shadow-shift-anime-function;
+    animation-fill-mode: forwards;
     &>div {
         display: flex;
         flex-direction: column;
@@ -143,8 +144,7 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
         & img {
             max-width: 100%;
             display: block;
-            border-top-left-radius: $border-radius-box;
-            border-top-right-radius: $border-radius-box;
+            @include border-radius-top($border-radius);
         }
     }//front
     &--back {
@@ -183,12 +183,20 @@ $pirouette-anime-one-card-delay-sep: $pirouette-anime-one-card-delay; //+ ($piro
 }
 
 
-@keyframes shadow-shift {
+@keyframes shadow-shift-for-actor-back {
     50% {
         box-shadow: 0em 0em 0.5em 0.1em color.change($color-secondary, $alpha: 0.4);
     }
     100% {
         box-shadow: 0em 0em 1em 0.3em $color-primary;
+    }
+}
+@keyframes shadow-shift-for-actor-front {
+    50% {
+        box-shadow: 0em 0em 0.5em 0.1em color.change($color-primary, $alpha: 0.4);
+    }
+    100% {
+        box-shadow: 0em 0em 1em 0.3em $color-secondary;
     }
 }
 
