@@ -6,11 +6,11 @@ $color-primary: hsl(29, 34%, 79%); //#dbc8b6
 $color-secondary: hsl(153, 16%, 76%); //#b7cbc2
 $color-secondary-2: hsla(5, 6%, 54%, 1); // #908483
 
-$font-family-style: 'Josefin Sans',"Trebuchet MS",Helvetica,Arial,sans-serif;
+$font-family-style: 'Merienda', 'Roboto', "Trebuchet MS",Helvetica,Arial,sans-serif;
 $font-size-default: 16px;
 
-$width-item: 17rem;  //(150px/$font-size-default) + rem;
-$height-item:20rem; //(75px/$font-size-default) + rem;
+$width-item: 17rem;
+$height-item:20rem;
 
 $shadow-shift-anime-duration: 0.5s;
 $shadow-shift-anime-function: linear;
@@ -44,8 +44,6 @@ body {
     margin:0;
     padding:0;
     font-family: $font-family-style;
-    //font-size: 1rem;
-    
     line-height: 1.4;
     color: $color-font;
     background-color: $color-background;
@@ -54,7 +52,6 @@ body {
 .travel-cards {
     margin: 0 1rem;
     &__header h2 {
-        //font-size: 2.5rem;
         margin: 1em auto 1em;
         text-align: center;
         background-color: $color-background;
@@ -128,17 +125,17 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
             flex: 1;   
         }
         & h3 {
-            //color: $color-dark-secondary;
-           // font-size: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
             background-image: linear-gradient(to right, $color-font, $color-secondary );
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
         & img {
+            flex-grow: 0;
             max-width: 100%;
             display: block;
             @include border-radius-top($border-radius);
@@ -150,7 +147,6 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
         background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-primary);
         padding: 1em;
         &>div {
-           // font-size: 1.5rem;
             justify-content: center;
             align-items: center; 
             position: relative;
@@ -192,8 +188,6 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
         }
     }
 }
-
-
 @keyframes shadow-shift-for-actor-back {
     50% {
         box-shadow: 0em 0em 0.5em 0.1em color.change($color-secondary, $alpha: 0.4);
