@@ -83,10 +83,6 @@ body {
   animation-fill-mode: forwards;
 }
 
-.travel-cards__item-flip__actor--front .show-image {
-  position: fixed;
-}
-
 .travel-cards__item-flip__item:nth-child(1) .travel-cards__item-flip__actor {
   z-index: 31;
 }
