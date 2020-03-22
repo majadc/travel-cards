@@ -34,7 +34,7 @@ body {
   width: 17rem;
   height: 20rem;
   position: relative;
-  animation: travel-cards-anime 5s ease-out;
+  animation: travel-cards-anime 5.5s ease-out;
   animation-fill-mode: backwards;
 }
 
@@ -76,6 +76,10 @@ body {
 
 .travel-cards__item:nth-child(10) {
   animation-delay: 5s;
+}
+
+.travel-cards__item:nth-child(11) {
+  animation-delay: 5.5s;
 }
 
 .travel-cards__arena-flip {
@@ -141,6 +145,10 @@ body {
 
 .travel-cards__item-flip__item:nth-child(10) .travel-cards__actor-flip {
   z-index: 40;
+}
+
+.travel-cards__item-flip__item:nth-child(11) .travel-cards__actor-flip {
+  z-index: 41;
 }
 
 .travel-cards__actor-flip {
