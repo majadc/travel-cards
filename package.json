@@ -1,0 +1,24 @@
+{
+  "name": "travel_cards",
+  "version": "1.0.0",
+  "description": "Gallery of flip cards",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majadc/travel-cards.git"
+  },
+  "keywords": [
+    "flip",
+    "cards",
+    "animations"
+  ],
+  "author": "majadc.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majadc/travel-cards/issues"
+  },
+  "homepage": "https://github.com/majadc/travel-cards#readme"
+}
