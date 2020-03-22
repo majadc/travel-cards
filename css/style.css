@@ -162,7 +162,7 @@ body {
   background-color: #b8ccc3;
 }
 
-@media (min-width: 50em) {
+@media only screen and (min-width: 62em) {
   html {
     font-size: 1rem;
   }

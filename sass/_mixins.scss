@@ -1,0 +1,17 @@
+@mixin border-radius-top ($border-radius) {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+}
+
+
+@mixin media-query-up ($size) {
+	@each $item, $value in $media-queries-up {
+		@if ( $item == $size ) {
+			@if ( map-get($value, 'breakpoint') != null ) {
+				@media only screen and #{map-get($value, "breakpoint")} {
+					@content;
+				}
+			}
+		}
+	}
+}

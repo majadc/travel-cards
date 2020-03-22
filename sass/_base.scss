@@ -1,0 +1,18 @@
+
+html {
+    box-sizing: border-box;
+    font-size: calc(0.6em + 1vw);
+}
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+body {
+    margin:0;
+    padding:0;
+    font-family: $font-family;
+    line-height: 1.4;
+    color: $color-font;
+    background-color: $color-background;
+}
