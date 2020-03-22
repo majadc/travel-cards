@@ -5,6 +5,7 @@
 	.travel-cards__container {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 	}
 	.travel-cards__item {
 		flex:0 0 $width-item;

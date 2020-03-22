@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "watch:sass": "sass --watch sass/style.scss:css/style.css",
-    "start": "npm-run-all --parallel watch:sass"
+    "start": "npm-run-all --parallel watch:sass",
+    "compile:sass": "sass sass/style.scss css/style.comp.css",
+    "prefix:css": "postcss css/style.comp.css --use autoprefixer -o css/style.prefix.css",
+    "compress:css": "sass --style=compressed css/style.prefix.css css/style.css",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/majadc/travel-cards/issues"
   },
-  "homepage": "https://github.com/majadc/travel-cards#readme"
+  "homepage": "https://github.com/majadc/travel-cards#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "concat": "^1.0.3",
+    "postcss-cli": "^7.1.0"
+  }
 }

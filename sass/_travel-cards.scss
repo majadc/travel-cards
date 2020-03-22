@@ -9,7 +9,7 @@
 		perspective: 1000px;
 	}
 	&__item {
-		margin: 1rem auto;
+		margin: 1rem;
 		width: $width-item;
 		height: $height-item;
 		position: relative;
@@ -19,7 +19,7 @@
 	}
 }
 $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
-@for $i from 1 to 6 {
+@for $i from 1 to $number-of-items+1 {
 	.travel-cards__item:nth-child(#{$i}) {
 		animation-delay: $travel-cards-anime-one-card-delay;
 	}
@@ -74,7 +74,6 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
 	}
 	&--front {
 		background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-primary);
-		
 		padding: 1em;
 	}
 	&--back {

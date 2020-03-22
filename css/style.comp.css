@@ -30,11 +30,11 @@ body {
   perspective: 1000px;
 }
 .travel-cards__item {
-  margin: 1rem;
+  margin: 1rem auto;
   width: 17rem;
   height: 20rem;
   position: relative;
-  animation: travel-cards-anime 5s ease-out;
+  animation: travel-cards-anime 2.5s ease-out;
   animation-fill-mode: backwards;
 }
 
@@ -56,26 +56,6 @@ body {
 
 .travel-cards__item:nth-child(5) {
   animation-delay: 2.5s;
-}
-
-.travel-cards__item:nth-child(6) {
-  animation-delay: 3s;
-}
-
-.travel-cards__item:nth-child(7) {
-  animation-delay: 3.5s;
-}
-
-.travel-cards__item:nth-child(8) {
-  animation-delay: 4s;
-}
-
-.travel-cards__item:nth-child(9) {
-  animation-delay: 4.5s;
-}
-
-.travel-cards__item:nth-child(10) {
-  animation-delay: 5s;
 }
 
 .travel-cards__arena-flip {
@@ -121,26 +101,6 @@ body {
 
 .travel-cards__item-flip__item:nth-child(5) .travel-cards__actor-flip {
   z-index: 35;
-}
-
-.travel-cards__item-flip__item:nth-child(6) .travel-cards__actor-flip {
-  z-index: 36;
-}
-
-.travel-cards__item-flip__item:nth-child(7) .travel-cards__actor-flip {
-  z-index: 37;
-}
-
-.travel-cards__item-flip__item:nth-child(8) .travel-cards__actor-flip {
-  z-index: 38;
-}
-
-.travel-cards__item-flip__item:nth-child(9) .travel-cards__actor-flip {
-  z-index: 39;
-}
-
-.travel-cards__item-flip__item:nth-child(10) .travel-cards__actor-flip {
-  z-index: 40;
 }
 
 .travel-cards__actor-flip {
@@ -214,7 +174,6 @@ body {
   .travel-cards__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   .travel-cards__item {
@@ -264,4 +223,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.comp.css.map */
