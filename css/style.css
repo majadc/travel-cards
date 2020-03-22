@@ -58,14 +58,14 @@ body {
   animation-delay: 2.5s;
 }
 
-.travel-cards__item-flip__arena {
+.travel-cards__arena-flip {
   width: 100%;
   height: 100%;
   perspective: 1000px;
   position: relative;
 }
 
-.travel-cards__item-flip__scene {
+.travel-cards__scene-flip {
   position: relative;
   z-index: 2;
   height: 100%;
@@ -78,32 +78,32 @@ body {
 .is-flipped {
   transform: rotateY(180deg) scale(1.1, 1.1);
 }
-.is-flipped .travel-cards__item-flip__actor {
+.is-flipped .travel-cards__actor-flip {
   animation: shadow-shift-for-actor-back 0.5s linear;
   animation-fill-mode: forwards;
 }
 
-.travel-cards__item-flip__item:nth-child(1) .travel-cards__item-flip__actor {
+.travel-cards__item-flip__item:nth-child(1) .travel-cards__actor-flip {
   z-index: 31;
 }
 
-.travel-cards__item-flip__item:nth-child(2) .travel-cards__item-flip__actor {
+.travel-cards__item-flip__item:nth-child(2) .travel-cards__actor-flip {
   z-index: 32;
 }
 
-.travel-cards__item-flip__item:nth-child(3) .travel-cards__item-flip__actor {
+.travel-cards__item-flip__item:nth-child(3) .travel-cards__actor-flip {
   z-index: 33;
 }
 
-.travel-cards__item-flip__item:nth-child(4) .travel-cards__item-flip__actor {
+.travel-cards__item-flip__item:nth-child(4) .travel-cards__actor-flip {
   z-index: 34;
 }
 
-.travel-cards__item-flip__item:nth-child(5) .travel-cards__item-flip__actor {
+.travel-cards__item-flip__item:nth-child(5) .travel-cards__actor-flip {
   z-index: 35;
 }
 
-.travel-cards__item-flip__actor {
+.travel-cards__actor-flip {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -113,18 +113,24 @@ body {
   animation: shadow-shift-for-actor-front 0.5s linear;
   animation-fill-mode: forwards;
 }
-.travel-cards__item-flip__actor > div {
+.travel-cards__actor-flip > div {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.travel-cards__item-flip__actor--front {
+.travel-cards__actor-flip--front {
+  background-image: linear-gradient(to bottom right, #b8ccc3 60%, #dcc9b7);
+  padding: 1em;
+}
+.travel-cards__actor-flip--back {
+  transform: rotateY(180deg);
   background-color: #dcc9b7;
 }
-.travel-cards__item-flip__actor--front > div > * {
+
+.travel-cards__actor-back--inner > * {
   flex: 1;
 }
-.travel-cards__item-flip__actor--front h3 {
+.travel-cards__actor-back--inner h3 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +140,7 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
-.travel-cards__item-flip__actor--front img {
+.travel-cards__actor-back--inner img {
   flex-grow: 0;
   max-width: 100%;
   display: block;
@@ -142,17 +148,13 @@ body {
   border-top-right-radius: 5px;
   object-fit: cover;
 }
-.travel-cards__item-flip__actor--back {
-  transform: rotateY(180deg);
-  background-image: linear-gradient(to bottom right, #b8ccc3 60%, #dcc9b7);
-  padding: 1em;
-}
-.travel-cards__item-flip__actor--back > div {
+
+.travel-cards__actor-front--inner {
   justify-content: center;
   align-items: center;
   position: relative;
 }
-.travel-cards__item-flip__actor--back > div::after {
+.travel-cards__actor-front--inner::after {
   display: block;
   content: "";
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);

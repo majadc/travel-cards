@@ -1,4 +1,4 @@
-let travelCardsItems = document.getElementsByClassName('travel-cards__item-flip__scene');
+let travelCardsItems = document.getElementsByClassName('travel-cards__scene-flip');
 
 for ( let item of travelCardsItems ) {
 	var handler = function() {
@@ -6,7 +6,6 @@ for ( let item of travelCardsItems ) {
 		item.classList.toggle('is-flipped');
 	
 	};
-	console.log(item.getElementsByTagName('h3'));
 	item.addEventListener('click', handler);
 }
 
