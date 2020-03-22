@@ -72,13 +72,19 @@ body {
   transition: transform 0.5s;
   transform: scale(1, 1);
   transform-style: preserve-3d;
+  cursor: pointer;
 }
-.travel-cards__item:hover .travel-cards__item-flip__scene {
+
+.is-flipped {
   transform: rotateY(180deg) scale(1.1, 1.1);
 }
-.travel-cards__item:hover .travel-cards__item-flip__scene .travel-cards__item-flip__actor {
+.is-flipped .travel-cards__item-flip__actor {
   animation: shadow-shift-for-actor-back 0.5s linear;
   animation-fill-mode: forwards;
+}
+
+.travel-cards__item-flip__actor--front .show-image {
+  position: fixed;
 }
 
 .travel-cards__item-flip__item:nth-child(1) .travel-cards__item-flip__actor {

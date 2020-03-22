@@ -1,116 +1,130 @@
 
 .travel-cards {
-    margin: 0 1rem;
-    &__header h2 {
-        margin: 1em auto 1em;
-        text-align: center;
-        background-color: $color-background;
-    }
-    &__container {
-        perspective: 1000px;
-    }
-    &__item {
-        margin: 1rem auto;
-        width: $width-item;
-        height: $height-item;
-        position: relative;
-        animation: travel-cards-anime $travel-cards-anime-duration ease-out;
-        animation-fill-mode: backwards;
-        
-    }
+	margin: 0 1rem;
+	&__header h2 {
+		margin: 1em auto 1em;
+		text-align: center;
+		background-color: $color-background;
+	}
+	&__container {
+		perspective: 1000px;
+	}
+	&__item {
+		margin: 1rem auto;
+		width: $width-item;
+		height: $height-item;
+		position: relative;
+		animation: travel-cards-anime $travel-cards-anime-duration ease-out;
+		animation-fill-mode: backwards;
+		
+	}
 }
 $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
 @for $i from 1 to 6 {
-    .travel-cards__item:nth-child(#{$i}) {
-        animation-delay: $travel-cards-anime-one-card-delay;
-    }
-    $travel-cards-anime-one-card-delay: $travel-cards-anime-one-card-delay + $travel-cards-anime-one-card-delay-sep;
+	.travel-cards__item:nth-child(#{$i}) {
+		animation-delay: $travel-cards-anime-one-card-delay;
+	}
+	$travel-cards-anime-one-card-delay: $travel-cards-anime-one-card-delay + $travel-cards-anime-one-card-delay-sep;
 }
 
 //fliping the card
 .travel-cards__item-flip__arena {
-    width: 100%;
-    height: 100%;
-    perspective: 1000px;
-    position: relative;
+	width: 100%;
+	height: 100%;
+	perspective: 1000px;
+	position: relative;
 }
 .travel-cards__item-flip__scene {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    transition: transform 0.5s;
-    transform: scale(1, 1);
-    transform-style: preserve-3d;
-    .travel-cards__item:hover & {
-        transform: rotateY(180deg) scale(1.1, 1.1);
-        & .travel-cards__item-flip__actor {
-            animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
-            animation-fill-mode: forwards;  
-        }
-    }   
+	position: relative;
+	z-index: 2;
+	height: 100%;
+	transition: transform 0.5s;
+	transform: scale(1, 1);
+	transform-style: preserve-3d;
+	cursor: pointer;
+	// .travel-cards__item:hover & {
+	//     transform: rotateY(180deg) scale(1.1, 1.1);
+	//     & .travel-cards__item-flip__actor {
+	//         animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
+	//         animation-fill-mode: forwards;  
+	//     }
+	// }   
+	
 }//scene
 
+.is-flipped {
+	transform: rotateY(180deg) scale(1.1, 1.1);
+	.travel-cards__item-flip__actor {
+		animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
+	    animation-fill-mode: forwards;
+	}
+}
+
+.travel-cards__item-flip__actor--front .show-image {
+	position: fixed;
+}
+
 @for $s from 1 to $number-of-items + 1 {
-    .travel-cards__item-flip__item:nth-child(#{$s}) .travel-cards__item-flip__actor {
-        z-index: 30 + $s;
-    }
+	.travel-cards__item-flip__item:nth-child(#{$s}) .travel-cards__item-flip__actor {
+		z-index: 30 + $s;
+	}
 }
 .travel-cards__item-flip__actor {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    border-radius: $border-radius;
-    border: 1px solid $color-secondary-2;
-    animation: shadow-shift-for-actor-front $shadow-shift-anime-duration $shadow-shift-anime-function;
-    animation-fill-mode: forwards;
-    &>div {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-    &--front {
-        background-color: $color-primary;
-        &>div>* {
-            flex: 1;   
-        }
-        & h3 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-image: linear-gradient(to right, $color-font, $color-secondary );
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        & img {
-            flex-grow: 0;
-            max-width: 100%;
-            display: block;
-            @include border-radius-top($border-radius);
-            object-fit: cover;
-        }
-    }//actor-front
-    &--back {
-        transform: rotateY(180deg);
-        background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-primary);
-        padding: 1em;
-        &>div {
-            justify-content: center;
-            align-items: center; 
-            position: relative;
-            &::after{
-                display: block;
-                content: '';
-                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 3rem;
-                height: 3rem;
-                background-color: $color-secondary;
-            }
-        }
-    }//actor-back
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	backface-visibility: hidden;
+	border-radius: $border-radius;
+	border: 1px solid $color-secondary-2;
+	animation: shadow-shift-for-actor-front $shadow-shift-anime-duration $shadow-shift-anime-function;
+	animation-fill-mode: forwards;
+	&>div {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+	&--front {
+		background-color: $color-primary;
+		&>div>* {
+			flex: 1;   
+		}
+		& h3 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			background-image: linear-gradient(to right, $color-font, $color-secondary );
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: transparent;
+		}
+		& img {
+			flex-grow: 0;
+			max-width: 100%;
+			display: block;
+			@include border-radius-top($border-radius);
+			object-fit: cover;
+		}
+	}//actor-front
+	&--back {
+		transform: rotateY(180deg);
+		background-image: linear-gradient(to bottom right, $color-secondary 60%, $color-primary);
+		padding: 1em;
+		&>div {
+			justify-content: center;
+			align-items: center; 
+			position: relative;
+			&::after{
+				display: block;
+				content: '';
+				clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 3rem;
+				height: 3rem;
+				background-color: $color-secondary;
+			}
+		}
+	}//actor-back
 }
