@@ -1,4 +1,6 @@
 #ignore vscode folder
 .vscode/
-
+node_modules/
+css_majadc/
+package-lock.json
 #ignore
