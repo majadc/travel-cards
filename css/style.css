@@ -99,10 +99,10 @@ body {
   cursor: pointer;
 }
 
-.is-flipped {
+.travel-cards__tiem--is-flipped {
   transform: rotateY(180deg) scale(1.1, 1.1);
 }
-.is-flipped .travel-cards__actor-flip {
+.travel-cards__tiem--is-flipped .travel-cards__actor-flip {
   animation: shadow-shift-for-actor-back 0.5s linear;
   animation-fill-mode: forwards;
 }

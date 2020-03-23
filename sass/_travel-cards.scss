@@ -44,7 +44,7 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
 	
 }//scene
 
-.is-flipped {
+.travel-cards__tiem--is-flipped {
 	transform: rotateY(180deg) scale(1.1, 1.1);
 	.travel-cards__actor-flip {
 		animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
