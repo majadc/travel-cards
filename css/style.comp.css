@@ -19,7 +19,11 @@ body {
 }
 
 .travel-cards {
-  margin: 0 1rem;
+  margin: 0;
+  font-size: calc(0.6em + 1vw);
+  line-height: 1.4;
+  color: #2e343e;
+  background-color: #f1f2ed;
 }
 .travel-cards__header h2 {
   margin: 1em auto 1em;
@@ -27,59 +31,61 @@ body {
   background-color: #f1f2ed;
 }
 .travel-cards__container {
-  perspective: 1000px;
+  width: 100%;
+  perspective: 100vw;
+  padding: 3rem 0;
 }
 .travel-cards__item {
-  margin: 1rem;
+  margin: 2rem auto;
   width: 17rem;
   height: 20rem;
   position: relative;
-  animation: travel-cards-anime 5.5s ease-out;
+  animation: travel-cards-anime 3.3s ease-out;
   animation-fill-mode: backwards;
 }
 
 .travel-cards__item:nth-child(1) {
-  animation-delay: 0.5s;
+  animation-delay: 0.3s;
 }
 
 .travel-cards__item:nth-child(2) {
-  animation-delay: 1s;
+  animation-delay: 0.6s;
 }
 
 .travel-cards__item:nth-child(3) {
-  animation-delay: 1.5s;
+  animation-delay: 0.9s;
 }
 
 .travel-cards__item:nth-child(4) {
-  animation-delay: 2s;
+  animation-delay: 1.2s;
 }
 
 .travel-cards__item:nth-child(5) {
-  animation-delay: 2.5s;
+  animation-delay: 1.5s;
 }
 
 .travel-cards__item:nth-child(6) {
-  animation-delay: 3s;
+  animation-delay: 1.8s;
 }
 
 .travel-cards__item:nth-child(7) {
-  animation-delay: 3.5s;
+  animation-delay: 2.1s;
 }
 
 .travel-cards__item:nth-child(8) {
-  animation-delay: 4s;
+  animation-delay: 2.4s;
 }
 
 .travel-cards__item:nth-child(9) {
-  animation-delay: 4.5s;
+  animation-delay: 2.7s;
 }
 
 .travel-cards__item:nth-child(10) {
-  animation-delay: 5s;
+  animation-delay: 3s;
 }
 
 .travel-cards__item:nth-child(11) {
-  animation-delay: 5.5s;
+  animation-delay: 3.3s;
 }
 
 .travel-cards__arena-flip {
@@ -105,6 +111,10 @@ body {
 .travel-cards__tiem--is-flipped .travel-cards__actor-flip {
   animation: shadow-shift-for-actor-back 0.5s linear;
   animation-fill-mode: forwards;
+}
+
+.travel-cards__tiem--is-inactive {
+  transform: rotateY(180deg) scale(1);
 }
 
 .travel-cards__item-flip__item:nth-child(1) .travel-cards__actor-flip {
@@ -258,13 +268,13 @@ body {
 @keyframes travel-cards-anime {
   0% {
     opacity: 0;
-    transform: translateZ(-1000px) translateX(150vw) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
+    transform: translateZ(-50000px) translateX(150vw) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
   }
-  25% {
+  70% {
     opacity: 1;
     transform: translateZ(-50px) skewx(-10deg) rotatex(5deg);
   }
-  80% {
+  90% {
     transform: translateZ(20px) skewx(0deg) scaley(1.2) scaleX(1.2) rotatex(0deg);
   }
   100% {
