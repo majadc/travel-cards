@@ -1,6 +1,6 @@
-let travelCardsItems = document.getElementsByClassName('travel-cards__scene-flip');
+let travelCardsScenes = document.getElementsByClassName('travel-cards__scene-flip');
 
-for ( let item of travelCardsItems ) {
+for ( let item of travelCardsScenes ) {
 
 	var handler = function() {
 		if (item.classList.contains('travel-cards__tiem--is-flipped') )  {
@@ -21,6 +21,14 @@ for ( let item of travelCardsItems ) {
 	item.addEventListener('click', handler);
 }//for
 
+let travelCardItems = document.getElementsByClassName('travel-cards__item');
+let travelCardsAnimeOneCardDelayStep = 300;
+let travelCardsAnimeOneCardDelay = travelCardsAnimeOneCardDelayStep;
+for ( let item of travelCardItems ) {
+
+	item.setAttribute('style', `animation-delay: ${travelCardsAnimeOneCardDelay}ms`);
+	travelCardsAnimeOneCardDelay = travelCardsAnimeOneCardDelayStep + travelCardsAnimeOneCardDelay;
+}
 
 
 
