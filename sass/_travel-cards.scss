@@ -24,13 +24,6 @@
 		
 	}
 }
-$travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
-@for $i from 1 to $number-of-items+1 {
-	.travel-cards__item:nth-child(#{$i}) {
-		animation-delay: $travel-cards-anime-one-card-delay;
-	}
-	$travel-cards-anime-one-card-delay: $travel-cards-anime-one-card-delay + $travel-cards-anime-one-card-delay-sep;
-}
 
 //fliping the card
 .travel-cards__arena-flip {
@@ -59,13 +52,6 @@ $travel-cards-anime-one-card-delay-sep: $travel-cards-anime-one-card-delay;
 }
 .travel-cards__tiem--is-inactive {
 	transform: rotateY(180deg) scale(1);
-}
-
-
-@for $s from 1 to $number-of-items + 1 {
-	.travel-cards__item-flip__item:nth-child(#{$s}) .travel-cards__actor-flip {
-		z-index: 30 + $s;
-	}
 }
 .travel-cards__actor-flip {
 	width: 100%;

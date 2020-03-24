@@ -21,16 +21,18 @@ for ( let item of travelCardsScenes ) {
 	item.addEventListener('click', handler);
 }//for
 
+
 let travelCardItems = document.getElementsByClassName('travel-cards__item');
 let travelCardsAnimeOneCardDelayStep = 300;
 let travelCardsAnimeOneCardDelay = travelCardsAnimeOneCardDelayStep;
+let travelCardsItemZindex = 31;
+let travelCardsAnimationDuration = travelCardItems.length * travelCardsAnimeOneCardDelayStep;
 for ( let item of travelCardItems ) {
-
 	item.setAttribute('style', `animation-delay: ${travelCardsAnimeOneCardDelay}ms`);
-	travelCardsAnimeOneCardDelay = travelCardsAnimeOneCardDelayStep + travelCardsAnimeOneCardDelay;
+	travelCardsAnimeOneCardDelay += travelCardsAnimeOneCardDelayStep;
+	item.style.animationDuration = `${travelCardsAnimationDuration}ms`;
+
+	item.getElementsByClassName('travel-cards__actor-flip')[0].setAttribute('style', `z-index: ${travelCardsItemZindex}`);
+	
+	travelCardsItemZindex =+ 1;
 }
-
-
-
-
-
