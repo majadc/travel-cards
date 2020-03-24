@@ -3,5 +3,5 @@
 node_modules/
 css_majadc/
 package-lock.json
-sass/style_majadc.scssg
+sass/style_majadc.scss
 #ignore
