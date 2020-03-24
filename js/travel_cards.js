@@ -33,6 +33,7 @@ for ( let item of travelCardItems ) {
 	item.style.animationDuration = `${travelCardsAnimationDuration}ms`;
 
 	item.getElementsByClassName('travel-cards__actor-flip')[0].setAttribute('style', `z-index: ${travelCardsItemZindex}`);
+	item.getElementsByClassName('travel-cards__actor-flip')[1].setAttribute('style', `z-index: ${travelCardsItemZindex}`);
 	
 	travelCardsItemZindex =+ 1;
 }
