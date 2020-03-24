@@ -12,8 +12,7 @@
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
 
     "compile:majadc": "sass sass/style_majadc.scss css_majadc/style.comp.css ",
-    "prefix:majadc": "postcss css_majadc/style.comp.css --use autoprefixer -o css_majadc/style_travel_cards.css",
-    "build:majadc": "npm-run-all compile:majadc prefix:majadc "
+    "build:majadc": "npm-run-all compile:majadc"
   },
   "repository": {
     "type": "git",
