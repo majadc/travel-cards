@@ -11,7 +11,7 @@
     "compress:css": "sass --style=compressed css/style.prefix.css css/style.css",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
 
-    "compile:majadc": "sass sass/style_majadc.scss css_majadc/style.comp.css ",
+    "compile:majadc": "sass sass/style_majadc.scss css_majadc/style_travel_cards.css ",
     "build:majadc": "npm-run-all compile:majadc"
   },
   "repository": {
