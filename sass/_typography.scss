@@ -1,0 +1,22 @@
+body {
+    font-size: 1rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+h3 {
+	font-size: 1.3rem;
+}
+
+@include media-query-up (large) {
+	body {
+		font-size: 1.2rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+}

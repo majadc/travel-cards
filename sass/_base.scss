@@ -1,7 +1,6 @@
 
 html {
     box-sizing: border-box;
-    font-size: calc(0.6em + 1vw);
 }
 *, *::before, *::after {
     margin: 0;
@@ -16,3 +15,5 @@ body {
     color: $color-font;
     background-color: $color-background;
 }
+
+

@@ -1,6 +1,5 @@
 html {
   box-sizing: border-box;
-  font-size: calc(0.6em + 1vw);
 }
 
 *, *::before, *::after {
@@ -18,9 +17,33 @@ body {
   background-color: #f1f2ed;
 }
 
+body {
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+@media only screen and (min-width: 62em) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+}
 .travel-cards {
   margin: 0;
-  font-size: calc(0.6em + 1vw);
   line-height: 1.4;
   color: #2e343e;
   background-color: #f1f2ed;
@@ -33,12 +56,15 @@ body {
 .travel-cards__container {
   width: 100%;
   perspective: 100vw;
-  padding: 3rem 0;
+  padding: 0 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 .travel-cards__item {
   margin: 2rem auto;
-  width: 17rem;
-  height: 20rem;
+  padding: 0 0.5rem;
+  width: 12rem;
+  height: 12.9411764706rem;
   position: relative;
   animation: travel-cards-anime 5s ease-out;
   animation-fill-mode: backwards;
@@ -61,15 +87,15 @@ body {
   cursor: pointer;
 }
 
-.travel-cards__tiem--is-flipped {
+.travel-cards__item--is-flipped {
   transform: rotateY(180deg) scale(1.1, 1.1);
 }
-.travel-cards__tiem--is-flipped .travel-cards__actor-flip {
+.travel-cards__item--is-flipped .travel-cards__actor-flip {
   animation: shadow-shift-for-actor-back 0.5s linear;
   animation-fill-mode: forwards;
 }
 
-.travel-cards__tiem--is-inactive {
+.travel-cards__item--is-inactive {
   transform: rotateY(180deg) scale(1);
 }
 
@@ -137,56 +163,37 @@ body {
 }
 
 @media only screen and (min-width: 62em) {
-  html {
-    font-size: 1rem;
-  }
-
-  .travel-cards__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
   .travel-cards__item {
-    flex: 0 0 17rem;
-  }
-
-  .travel-cards p {
-    font-size: 1.5rem;
-  }
-  .travel-cards h2 {
-    font-size: 2.5rem;
-  }
-  .travel-cards h3 {
-    font-size: 2rem;
+    width: 17rem;
+    height: 20rem;
   }
 }
 @keyframes shadow-shift-for-actor-back {
   50% {
-    box-shadow: 0em 0em 10px 4px rgba(220, 201, 183, 0.4);
+    box-shadow: 0em 0em 0.5em 0.1em rgba(184, 204, 195, 0.4);
   }
   100% {
-    box-shadow: 0em 0em 5px 2px #b8ccc3;
+    box-shadow: 0em 0em 1em 0.3em #dcc9b7;
   }
 }
 @keyframes shadow-shift-for-actor-front {
   50% {
-    box-shadow: 0em 0em 10px 4px rgba(184, 204, 195, 0.4);
+    box-shadow: 0em 0em 0.5em 0.1em rgba(220, 201, 183, 0.4);
   }
   100% {
-    box-shadow: 0em 0em 5px 2px #dcc9b7;
+    box-shadow: 0em 0em 1em 0.3em #b8ccc3;
   }
 }
 @keyframes travel-cards-anime {
   0% {
     opacity: 0;
-    transform: translateZ(-50000px) translateX(150vw) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
+    transform: translateZ(-1000px) translateX(150vw) skewx(-30deg) scaley(0.5) scaleX(0.5) rotatez(30deg);
   }
-  70% {
+  25% {
     opacity: 1;
     transform: translateZ(-50px) skewx(-10deg) rotatex(5deg);
   }
-  90% {
+  80% {
     transform: translateZ(20px) skewx(0deg) scaley(1.2) scaleX(1.2) rotatex(0deg);
   }
   100% {

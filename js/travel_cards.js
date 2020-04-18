@@ -3,16 +3,16 @@ let travelCardsScenes = document.getElementsByClassName('travel-cards__scene-fli
 for ( let item of travelCardsScenes ) {
 
 	var handler = function() {
-		if (item.classList.contains('travel-cards__tiem--is-flipped') )  {
-			item.classList.remove('travel-cards__tiem--is-inactive');
-			item.classList.remove('travel-cards__tiem--is-flipped');
+		if (item.classList.contains('travel-cards__item--is-flipped') )  {
+			item.classList.remove('travel-cards__item--is-inactive');
+			item.classList.remove('travel-cards__item--is-flipped');
 		} 
 		else {
-			item.classList.add('travel-cards__tiem--is-flipped');
-			let travelCardsItemsInactive = document.getElementsByClassName('travel-cards__tiem--is-flipped');
+			item.classList.add('travel-cards__item--is-flipped');
+			let travelCardsItemsInactive = document.getElementsByClassName('travel-cards__item--is-flipped');
 			for ( let card of  travelCardsItemsInactive ) {
-				if (card.classList.contains('travel-cards__tiem--is-flipped') && item != card) {
-					card.classList.add('travel-cards__tiem--is-inactive');
+				if (card.classList.contains('travel-cards__item--is-flipped') && item != card) {
+					card.classList.add('travel-cards__item--is-inactive');
 				}
 
 			}

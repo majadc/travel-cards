@@ -1,6 +1,5 @@
 .travel-cards {
 	margin: 0;
-	font-size: calc(0.6em + 1vw);
 	line-height: 1.4;
     color: $color-font;
     background-color: $color-background;
@@ -12,12 +11,16 @@
 	&__container {
 		width: 100%;
 		perspective: 100vw;
-		padding: 3rem 0;
+		padding:0 0 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		
 	}
 	&__item {
 		margin: 2rem auto;
-		width: $width-item;
-		height: $height-item;
+		padding: 0 0.5rem;
+		width: 12rem;
+		height: 11rem * ($height-item/$width-item);
 		position: relative;
 		animation: travel-cards-anime $travel-cards-anime-duration ease-out;
 		animation-fill-mode: backwards;
@@ -25,7 +28,7 @@
 	}
 }
 
-//fliping the card
+//flipping the card
 .travel-cards__arena-flip {
 	width: 100%;
 	height: 100%;
@@ -43,14 +46,14 @@
 	
 }//scene
 
-.travel-cards__tiem--is-flipped {
+.travel-cards__item--is-flipped {
 	transform: rotateY(180deg) scale(1.1, 1.1);
 	.travel-cards__actor-flip {
 		animation: shadow-shift-for-actor-back $shadow-shift-anime-duration $shadow-shift-anime-function;
 	    animation-fill-mode: forwards;
 	}
 }
-.travel-cards__tiem--is-inactive {
+.travel-cards__item--is-inactive {
 	transform: rotateY(180deg) scale(1);
 }
 .travel-cards__actor-flip {
@@ -118,4 +121,14 @@
 		height: 3rem;
 		background-color: $color-secondary;
 	}	
+}
+
+
+@include media-query-up (large) {
+	.travel-cards {
+		&__item {
+			width: $width-item;
+			height: $height-item;
+		}
+	}
 }
