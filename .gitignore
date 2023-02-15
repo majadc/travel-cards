@@ -4,4 +4,5 @@ node_modules/
 css/css_majadc/
 package-lock.json
 sass/style_majadc.scss
+travel_cards.code-workspace
 #ignore
