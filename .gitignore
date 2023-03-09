@@ -1,8 +1,11 @@
 #ignore vscode folder
 .vscode/
 node_modules/
-css/css_majadc/
-package-lock.json
+css/*
+!css/style.css
+!css/style.css.map
+images/
 sass/style_majadc.scss
 travel_cards.code-workspace
+readme-majadc.md
 #ignore
