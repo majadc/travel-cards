@@ -10,7 +10,7 @@
     "prefix:css": "postcss css/style.comp.css --use autoprefixer -o css/style.css",
     "compress:css": "cleancss  -o css/style.css css/style.css --source-map",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
-    "build:majadc": "sass sass/style_majadc.scss css/css_majadc/travel_cards-for_majadc.css "
+    "build:majadc": "sass sass/style_majadc.scss css/css-majadc/travel_cards-for_majadc.css "
   },
   "repository": {
     "type": "git",
